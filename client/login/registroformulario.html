@@ -1,0 +1,77 @@
+<template name="registroformulario">
+  <form action="" method="POST">
+          <div class="row">
+            <div class="col s11">
+              <legend>Register</legend>
+            </div>
+            <div class="col s1">
+              <a href="" id="cerrar">X</a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+                  <i class="material-icons prefix">Nombre</i>
+                  <input placeholder="Nombre" type="text" class="form-control" name="Nombre">
+                  <label for="Nombre">Nombre</label>
+            </div>
+            <div class="input-field col s6">
+                  <i class="material-icons prefix">Apellido</i>
+                  <input placeholder="Apellido" type="text" class="form-control" name="Apellido">
+                  <label for="Apellido">Apellido</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s6">
+              <p>Seleccione su Idioma<i class="material-icons prefix">fast_forward</i></p>
+            </div>
+            <div class="col s6">
+              <div class="input-field"> 
+                <div class="form-group">
+                  <select name="Idioma">
+                    <option value="Español">Español</option>
+                    <option value="Ingles">Ingles</option>
+                    <option value="Frances">Frances</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+                  <i class="material-icons prefix">assignment_ind</i>
+                  <input type="text" name="username" class="form-control" id="" placeholder="Nick">
+                  <label for="Nick">Nick</label>
+            </div>
+            <div class="input-field col s6">
+                  <i class="material-icons prefix">email</i>
+                  <input type="text" name="email" class="form-control" id="" placeholder="Email">
+                  <label for="Email">Email</label>
+            </div>
+          </div>
+          <div class="row">
+               <div class="input-field col s6"> 
+                  <i class="material-icons prefix">vpn_key</i>     
+                  <label for="password">Password</label>
+                  <input id="" type="password" placeholder="Password" class="form-control" name="password" required>          
+               </div>
+               <div class="input-field col s6"> 
+                  <i class="material-icons prefix">vpn_key</i>     
+                  <label for="password">Re password</label>
+                  <input id="" type="password" placeholder="Re password" class="form-control" name="Repassword" required>          
+               </div>
+            </div>        
+          <div class="row">
+            <div class="col s4">
+                <button type="submit" class="btn">Crear cuenta</button>
+            </div>
+            <div class="col s4">
+                  <a id="logo-container" href="#" class="brand-logo"><IMG src="/imagenes/yas.jpg" width="115" height="100" class="circle responsive-img"/> </a>
+            </div>
+            <div class="col s4">
+                 <i class="material-icons prefix">fast_rewind</i>
+                <button type="button" id="return" class="btn">Volver</button>
+              
+            </div>
+          </div>
+        </form>
+</template>

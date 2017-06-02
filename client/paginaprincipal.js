@@ -1,15 +1,15 @@
-Template.tempa.onRendered(function(){
+Template.paginaprincipal.onRendered(function(){
 	$('.button-collapse').sideNav();
     $('.parallax').parallax();
     $(".panelForm").css("opacity",0);
 });
-Template.mainpage.helpers({
+Template.paginaprincipal.helpers({
 	username : function(){
 		return Accounts.user().username;
 	}
 })
 
-Template.mainpage.events({
+Template.paginaprincipal.events({
 	"click #login" : function(){
 		$(".panelForm").css("opacity",1);
 	},
