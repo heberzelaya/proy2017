@@ -22,6 +22,15 @@ Template.loginform.onRendered(function(){
                  },{scope: 'email'});*/
 
                  };
+                 function createAccount(user){
+                        Accounts.createUser(user, function(e){
+                        if(e == undefined) {
+                         $(".panelForm").css("opacity",0);       
+                           // al servidor
+                          Meteor.loginWithPassword(user.username,user.password);  
+                }
+              });
+        }
                   function testAPI() {
                       console.log('Welcome!  Fetching your information.... ');
                       var datosfacebook = [];
@@ -32,6 +41,26 @@ Template.loginform.onRendered(function(){
                           FB.api("/me/picture",function(r){
                             datosfacebook.push(r);
                             self.datos.set(datosfacebook);
+                            Meteor.call("checkAccount",datosfacebook[1].name, function(err,r){
+                               if(!r){
+                                  var user = {
+                                   "username" : datosfacebook[1].name,
+                                    "email" : datosfacebook[0].email,
+                                    "password" : datosfacebook[0].id,
+                                   "profile" : {
+                                   "Nombre" : e.target.Nombre.value,
+                                   "Apellido" : e.target.Apellido.value,
+                                   "Idioma" : e.target.Idioma.value
+                                    }
+                                 };
+                                      // console.log(user);
+                                    createAccount(user);
+                               }else{
+                                 self.datos.set(datosfacebook);
+                               }
+                            })
+                               
+        
                             console.log(datosfacebook);
 
                           });
