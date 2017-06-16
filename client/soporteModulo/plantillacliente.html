@@ -1,5 +1,21 @@
+<template name="plantillacliente">
+	{{#if conectado}}
+		{{>plantillaFormChat}}
+	{{else}}
+		{{>connect_template}}
+	{{/if}}
+</template>
+<template name="connect_template">
+	<div class="row">
+		<div class="col s12">
+			<center>
+				<button type="button" class="waves-effect waves-light btn-large"><i class="mdi-file-cloud right"></i>conectarse</button>
+			</center>
+		</div>
+	</div>
+</template>
 
-<template name="templateClient">
+<template name="plantillaFormChat">
 	<div class="row">
 		<div class="col s12"> 
 			<div class="row">
