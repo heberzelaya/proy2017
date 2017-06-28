@@ -1,0 +1,43 @@
+<template name="cursos">
+  
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center teal-text text-lighten-2">Curso de HTML5</h1>
+        <div class="row center">
+          <h5 class="header col s12 light ">curso introduccion a HTML5 donde aprenderas a crear un sitio web</h5>
+        </div>
+        <div class="row center">
+          {{#if currentUser}}
+              {{#if isInRole 'estudiante' 'estudiante'}}
+                  <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect  waves-light teal lighten-1">Ir al curso</a>
+              {{/if}}
+          {{/if}}
+        </div>
+        <br><br>
+
+      </div>
+    </div>
+    <div class="parallax"><img src="/imagenes/html5.jpg" alt="Unsplashed background img 2"></div>
+  </div>
+  <br>
+
+   <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center teal-text text-lighten-2">Curso de Nodejs</h1>
+        <div class="row center">
+          <h5 class="header col s12 light ">NodeJS es una plataforma que se usa principalmente para desarrollar aplicaciones web utilizando javaScript en el servidor</h5>
+        </div>
+        <div class="row center">
+          <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect  waves-light teal lighten-1">Ir al curso</a>
+        </div>
+        <br><br>
+
+      </div>
+    </div>
+    <div class="parallax"><img src="/imagenes/java.jpg" alt="Unsplashed background img 2"></div>
+  </div>
+</template>

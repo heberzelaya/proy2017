@@ -5,10 +5,25 @@
     <div class="nav-wrapper container">
       <a id="logo-container" href="#" class="brand-logo"><IMG src="/imagenes/yas.jpg" width="115" height="100" class="circle responsive-img"/> </a>
      <ul class="right hide-on-med-and-down">
-         <li><a href="/soporte" >soporte</a></li>
+         <!-- <li><a href="/soporte" >soporte</a></li>-->
         {{#if currentUser}}
-          <li><a href="#" id="logout">Logout {{username}}</a></li>
+            {{#if isInRole 'facilitador' 'facilitador'}}
+                {{>faci}}
+              <!--<li><a href="#" id="logout">Logout {{username}}</a></li> -->  
+            {{else}}
+                {{#if  isInRole 'admin' 'admin'}} 
+                   {{>admi}}
+                {{else}}
+                    {{#if isInRole 'estudiante' 'estudiante'}}
+                       {{>estu}}
+                    {{else}}
+                       {{>usu}}
+                    {{/if}}
+                {{/if}} 
+            {{/if}}
         {{else}}
+          <li><a id="home" href="/">Home</a></li>
+          <li><a href="/cursos" >Ver Cursos</a></li>
           <li><a href="#" id="login">Login </a></li>  
         {{/if}}
       </ul>
@@ -31,57 +46,12 @@
 
   </div>
   
-  {{>Template.dynamic template=principalimguno}}
+ 
   
    <div class="container">
    {{>Template.dynamic template=content}}
      
    </div>
-   
-  
-
-  
-  <br>
-  
-
-
-  <div id="index-banner" class="parallax-container">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <br><br>
-        <h1 class="header center teal-text text-lighten-2">Curso de HTML5</h1>
-        <div class="row center">
-          <h5 class="header col s12 light ">curso introduccion a HTML5 donde aprenderas a crear un sitio web</h5>
-        </div>
-        <div class="row center">
-          <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect  waves-light teal lighten-1">Ir al curso</a>
-        </div>
-        <br><br>
-
-      </div>
-    </div>
-    <div class="parallax"><img src="/imagenes/html5.jpg" alt="Unsplashed background img 2"></div>
-  </div>
-  <br>
-
-   <div id="index-banner" class="parallax-container">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <br><br>
-        <h1 class="header center teal-text text-lighten-2">Curso de Nodejs</h1>
-        <div class="row center">
-          <h5 class="header col s12 light ">NodeJS es una plataforma que se usa principalmente para desarrollar aplicaciones web utilizando javaScript en el servidor</h5>
-        </div>
-        <div class="row center">
-          <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect  waves-light teal lighten-1">Ir al curso</a>
-        </div>
-        <br><br>
-
-      </div>
-    </div>
-    <div class="parallax"><img src="/imagenes/java.jpg" alt="Unsplashed background img 2"></div>
-  </div>
-  <br>
 
   
  <footer class="page-footer teal">
@@ -102,15 +72,7 @@
             <li><a class="white-text" href="#!">Link 4</a></li>
           </ul>
         </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Connect</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
-        </div>
+        
       </div>
     </div>
     <div class="footer-copyright">
