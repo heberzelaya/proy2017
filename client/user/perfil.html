@@ -1,0 +1,82 @@
+<template name="perfil">
+    <div class="row">
+        <div class="col s12 m7">
+          <div class="card">
+            <div class="card-image">
+              <img src="/imagenes/yas.jpg">
+              <span class="card-title">Usuario</span>
+            </div>
+            <div class="card-content">
+               <p>Nombre : Heber</p>
+               <p>Apellido : Mamani Mmano</p>
+               <p>Carrera : Ing. de sistemas</p>
+            
+            </div>
+            <div class="card-action">
+	            
+	            <button id="modalactivar" data-target="modal1" class="btn">Modal</button>
+	            
+            </div>
+             <div id="modal1" class="modal">
+			    <div class="modal-content">
+			      <h4>Modal Header</h4>
+			      <p>A bunch of text</p>
+			    </div>
+			    <div class="modal-footer">
+			      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+			    </div>
+			  </div>
+          </div>
+        </div>
+    </div>
+            
+   
+    <div id="boxprofile"    class="box" style="height: 100%; padding-top: 22px; ">
+        <div class="container">
+            <div class="fb-profile">
+                <img align="left" class="fb-image-lg" src="/imagenes/yas.jpg" alt="Profile image example"/>
+               
+                
+                <div class="fb-profile-text">
+                        <div class="row">
+                            <div class="span12">
+                                <div class="" id="loginModal">
+                                  <div class="modal-body">
+                                      <ul class="nav nav-tabs">
+                                        <li class="active"><a href="#login" data-toggle="tab">Informacion</a></li>
+                                        <li><a href="#create" data-toggle="tab">Bibliografia</a></li>
+                                      </ul>
+                                      <div id="myTabContent" class="tab-content">
+                                        <div class="tab-pane active in" id="login">
+                                            <div class="container">
+                                                <table id="tablaprofile" class="table">
+                                                    <tbody>
+                                                        
+                                                        <tr><strong>Nombre :</strong>  </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                           
+                                                
+                                           
+                                            <div id="BotonEditar">
+                                                <button type="submit" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"><strong>Editar</strong></button> 
+                                            </div>
+                                           
+                                        </div>
+                                        <div class="tab-pane fade" id="create">
+                                            Billifrafia   
+                                        </div>
+                                    </div>
+                              
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div> 
+  
+</template>
