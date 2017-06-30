@@ -3,33 +3,54 @@
    {{#if isInRole 'facilitador' 'facilitador'}}
          {{>insertarcursos}}          
     {{/if}}
-  {{/if}}0
-        <h1>Nombre:</h1>
+  {{/if}}
+  <div class="row">
+    <div class="col s12">
+        {{#each listCursos}}
+          <div class="col s6">
+          <div class="card">
+            <div class="card-image">
+              <img src="/imagenes/yas.jpg">
+              <span class="card-title">{{nombre}}</span>
+            </div>
+            <div class="card-content" style="color: red;">
+              <p>{{detalle}}</p>
+            </div>
+            <div class="card-action" style="text-align: center;">
+              <a href="#">Tomar este curso</a>
+            </div>
+          </div>
+        </div>
+
+        {{/each}}
+      
+    </div>
+
+  </div>
    
-     <div id="index-banner" class="parallax-container">
+
+  <!--<div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
       <div class="container">
         <br><br>
-        {{#each listCursos}}
-  
-        <h1 class="header center teal-text text-lighten-2">{{nombre}}</h1>
+        <h1 class="header center teal-text text-lighten-2">Curso de HTML5</h1>
         <div class="row center">
-          <h5 class="header col s12 light ">{{detalle}}</h5>
+          <h5 class="header col s12 light ">curso introduccion a HTML5 donde aprenderas a crear un sitio web</h5>
         </div>
         <div class="row center">
           {{#if currentUser}}
-              {{#if isInRole 'facilitador' 'facilitador'}}
+              {{#if isInRole 'estudiante' 'estudiante'}}
                   <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect  waves-light teal lighten-1">Ir al curso</a>
               {{/if}}
           {{/if}}
         </div>
-        <br /><br />
-        {{/each}}
+        <br><br>
+
       </div>
     </div>
     <div class="parallax"><img src="/imagenes/html5.jpg" alt="Unsplashed background img 2"></div>
-  </div>
-  <br>
+  </div>-->
+  
    <!--
    <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
@@ -52,7 +73,7 @@
 <template name="insertarcursos">
   <div class="container">
     <div class="row">
-    <h3 class="center-align">CONTACTO</h3>
+    <h3 class="center-align">CREE EL CURSO</h3>
       <article class="col s6 offset-s3">
         <form>
           <div class="input-field">
