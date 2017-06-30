@@ -18,8 +18,8 @@ Meteor.startup(() => {
 		  
 		  return Meteor.users.find();
 	});
-	Meteor.publish('listCurso', function() {
-		  return Cursos.find().fetch();
+	Meteor.publish('listCursos', function() {  
+		  return Cursos.find();
 	});
 
 });

@@ -19,8 +19,8 @@ Template.insertarcursos.events({
 	}
 });
 Template.cursos.helpers({
-	listCurso: function(){
-		return Cursos.find().fetch();
+	listCursos: function(){
+		return Cursos.find();
 	}
 });
-Meteor.subscribe('listCurso');
+Meteor.subscribe('listCursos');
