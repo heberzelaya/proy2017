@@ -33,5 +33,34 @@
 	         </tbody>
 	      {{/each}}       
 	    </table>
+	    <div class="container">
+	  <h1>Usuarios</h1>
+	  <p>usuarios logeados por preferencia en el  sistema</p> 
+	  <div  class="table-editable">
+	    <table class="table table-hover	">
+    	  <thead>
+		    <tr>
+		       <th>Nombre</th>
+			   <th>Apellido</th>
+			    <th>Estado</th>
+			    <th></th>
+		    </tr>
+		  </thead>
+	      {{#each listActivos}}
+	       <tbody>
+		      <tr>
+		        <td>{{profile.nombre}}</td>
+		        <td>{{profile.apellido}}</td>	
+		       	<td>Activo</td>	
+		        <td>
+		           <button id="Deshabilitar" type="button" class="btn btn-primary active"><span class="glyphicon glyphicon-align-right"> Dar baja</span></button>   
+		        </td>
+		      
+		      </tr>	
+	        </tbody>
+	      {{/each}}       
+	    </table>
+	  </div>
+	</div>
 
 </template>

@@ -1,5 +1,12 @@
 <template name="cursos">
-  
+  {{#if currentUser }}
+   {{#if isInRole 'facilitador' 'facilitador'}}
+         {{>insertarcursos}}          
+    {{/if}}
+  {{/if}}
+  {{#each listCurso}}
+        {{this.nombre}}
+   {{/each}}
   <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
       <div class="container">
@@ -40,4 +47,44 @@
     </div>
     <div class="parallax"><img src="/imagenes/java.jpg" alt="Unsplashed background img 2"></div>
   </div>
+</template>
+<template name="insertarcursos">
+  <div class="container">
+    <div class="row">
+    <h3 class="center-align">CONTACTO</h3>
+      <article class="col s6 offset-s3">
+        <form>
+          <div class="input-field">
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre">
+          </div>
+          <div class="input-field">
+            <label for="apellido">Detalle</label>
+            <input type="text" name="detalle">
+          </div>
+          
+          <div class="input-field">
+            <label for="email">Inicio</label>
+            <input type="date" name="inicio">
+          </div>
+           <div class="input-field">
+            <label for="email">Fin</label>
+            <input type="date" name="fin">
+          </div>
+          <div class="input-field">
+            <label for="email">Imagen</label>
+            <input type="file" name="imagen">
+          </div>
+          
+          
+          <p class="center-align">
+            <button class="waves-effect waves-light btn" type="submit">Crear</button>
+          </p>
+
+        </form>
+
+      </article>
+    </div>
+  </div>
+  
 </template>
