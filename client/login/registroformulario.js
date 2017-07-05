@@ -18,7 +18,8 @@ Template.registroformulario.events({
 			"profile" : {
 				"Nombre" : e.target.Nombre.value,
 				"Apellido" : e.target.Apellido.value,
-				"Idioma" : e.target.Idioma.value
+				"Idioma" : e.target.Idioma.value,
+				"estado" :false
 			   }
 	       };
 	      Accounts.createUser(user, function(e){

@@ -9,6 +9,19 @@ Meteor.startup(() => {
 	     }
 	     return false;
 	  },
+	  "banearUsuario": function(id){
+		Meteor.users.update(id,{$set:{'profile.estado':true}});
+		return true;
+	  },
+	  "addEstu": function(id){
+		Roles.addUsersToRoles(id,['estudiante'], 'estudiante');
+		return true;
+	  },
+	  "addFaci": function(id){
+	  	// Meteor.users.update({_id:id},{$set:{}})
+	  	Roles.addUsersToRoles(id,['facilitador'], 'facilitador');
+		return true;	
+	  },
 	  "addCourse": function(msnObj){
 		Cursos.insert(msnObj);
 		return true;
