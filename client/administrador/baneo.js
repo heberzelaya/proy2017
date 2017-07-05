@@ -8,12 +8,10 @@ Template.baneo.helpers({
 });
 Template.baneo.events({
 	"click #car":function(e){
-		//e.preventDefault();
-		//alert(this._id);
 		id=this._id;
 		Meteor.call("addUsuario",id);
 	},
-	"click #sol":function(e){
+	"click #Deshabilitar":function(e){
  		
 		//e.preventDefault();
 		alert(this._id);

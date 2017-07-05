@@ -10,8 +10,8 @@ Meteor.startup(() => {
 	     return false;
 	  },
 	  "addCourse": function(msnObj){
-				Cursos.insert(msnObj);
-				return true;
+		Cursos.insert(msnObj);
+		return true;
 	  }
 	});
 	Meteor.publish('listPendientes', function() {

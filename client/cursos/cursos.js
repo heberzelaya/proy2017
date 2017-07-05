@@ -14,7 +14,11 @@ Template.insertarcursos.events({
 			"imagen" : "null",
 			"userId" : Accounts.user()._id
 	    };
-	  Meteor.call("addCourse",obj);
+		Meteor.call("addCourse",obj);
+		e.target.nombre.value="";
+		e.target.detalle.value="";
+		e.target.inicio.value="";
+		e.target.fin.value=""; 
 		console.log("hola");
 	}
 });

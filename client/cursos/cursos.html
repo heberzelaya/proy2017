@@ -16,14 +16,32 @@
             <div class="card-content" style="color: red;">
               <p>{{detalle}}</p>
             </div>
-            <div class="card-action" style="text-align: center;">
-              <a href="#">Tomar este curso</a>
-            </div>
+            {{#if currentUser }}
+                {{#if isInRole 'estudiante' 'estudiante'}}
+                    <div class="card-action" style="text-align: center;">
+                      <a href="#">Tomar este curso</a>
+                    </div>
+                {{else}}          
+                    {{#if isInRole 'facilitador' 'facilitador'}}
+                      <div class="card-action" style="text-align: center;">
+                        <a href="#">Subir Material</a>
+                        <a>!</a>
+                        <a href="#">Editar</a>
+                      </div>
+                    {{else}}
+                        {{#if  isInRole 'admin' 'admin'}} 
+                            <div class="card-action" style="text-align: center;">
+                              <a href="#">Eliminar</a>
+                              <a>!</a>
+                              <a href="#">Editar</a>
+                            </div>
+                        {{/if}}
+                    {{/if}}    
+                {{/if}}
+            {{/if}}   
           </div>
         </div>
-
         {{/each}}
-      
     </div>
 
   </div>
@@ -96,9 +114,7 @@
           <div class="input-field">
             <label for="email">Imagen</label>
             <input type="file" name="imagen">
-          </div>
-          
-          
+          </div> 
           <p class="center-align">
             <button class="waves-effect waves-light btn" type="submit">Crear</button>
           </p>
