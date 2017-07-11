@@ -31,6 +31,10 @@ Meteor.startup(() => {
 		return true;
 	  }
 	});
+	 Meteor.publish('perfill', function() {
+		  
+		  return Meteor.users.find();
+	});
 	Meteor.publish('listPendientes', function() {
 		  
 		  return Meteor.users.find();
