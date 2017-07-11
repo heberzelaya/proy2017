@@ -2,6 +2,10 @@ import { Meteor } from 'meteor/meteor';
 
 Meteor.startup(() => {
 	 Meteor.methods({
+	 	"addMaterial": function(msnObj){
+			Material.insert(msnObj);
+			return true;
+	    },
 	  "checkAccount": function(username){
 	  	 var t = Meteor.users.find({username:username}).fetch();
 	     if(t.length ==1){

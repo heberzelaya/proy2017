@@ -53,3 +53,21 @@ var cursoss=new SimpleSchema({
 	}
 });
 Cursos.attachSchema(cursoss);  
+
+
+Material = new Mongo.Collection('material');
+var materiales=new SimpleSchema({
+	titulo:{
+		type:String
+	},
+	descripcion:{
+		type:String
+	},
+	file:{
+		type:String
+	},
+	cursoid:{
+		type:String
+	}
+});
+Material.attachSchema(materiales);  

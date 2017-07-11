@@ -7,41 +7,41 @@
   <div class="row">
     <div class="col s12">
         {{#each listCursos}}
-          <div class="col s6">
-          <div class="card">
-            <div class="card-image">
-              <img src="/imagenes/yas.jpg">
-              <span class="card-title">{{nombre}}</span>
-            </div>
-            <div class="card-content" style="color: red;">
-              <p>{{detalle}}</p>
-            </div>
-            {{#if currentUser }}
-                {{#if isInRole 'estudiante' 'estudiante'}}
-                    <div class="card-action" style="text-align: center;">
-                      <a href="#">Tomar este curso</a>
-                    </div>
-                {{else}}          
-                    {{#if isInRole 'facilitador' 'facilitador'}}
+          <div class="col s6 m6 l13">
+            <div class="card">
+              <div class="card-image">
+                <img src="/imagenes/yas.jpg">
+                <span class="card-title">{{nombre}}</span>
+              </div>
+              <div class="card-content" style="color: red;">
+                <p>{{detalle}}</p>
+              </div>
+              {{#if currentUser }}
+                  {{#if isInRole 'estudiante' 'estudiante'}}
                       <div class="card-action" style="text-align: center;">
-                        <a href="#">Subir Material</a>
-                        <a>!</a>
-                        <a href="#">Editar</a>
+                        <a href="#">Tomar este curso</a>
                       </div>
-                    {{else}}
-                        {{#if  isInRole 'admin' 'admin'}} 
-                            <div class="card-action" style="text-align: center;">
-                              <a href="#">Eliminar</a>
-                              <a>!</a>
-                              <a href="#">Editar</a>
-                            </div>
-                        {{/if}}
-                    {{/if}}    
-                {{/if}}
-            {{/if}}   
-          </div>
+                  {{else}}          
+                      {{#if isInRole 'facilitador' 'facilitador'}}
+                        <div class="card-action" style="text-align: center;">
+                          <a href="/subirmaterial/{{_id}}">Subir Material</a>
+                          <a>!</a>
+                          <a href="#">Editar</a>
+                        </div>
+                      {{else}}
+                          {{#if  isInRole 'admin' 'admin'}} 
+                              <div class="card-action" style="text-align: center;">
+                                <a href="#">Eliminar</a>
+                                <a>!</a>
+                                <a href="#">Editar</a>
+                              </div>
+                          {{/if}}
+                      {{/if}}    
+                  {{/if}}
+              {{/if}}   
+            </div>
         </div>
-        {{/each}}
+        {{/each}}       
     </div>
 
   </div>
