@@ -26,7 +26,7 @@
                         <div class="card-action" style="text-align: center;">
                           <a href="/subirmaterial/{{_id}}">Subir Material</a>
                           <a>!</a>
-                          <a href="#">Editar</a>
+                          <a id="editCurso" class="waves-effect waves-light  modal-trigger" data-target="modal1" >Editar</a>
                         </div>
                       {{else}}
                           {{#if  isInRole 'admin' 'admin'}} 
@@ -45,7 +45,7 @@
     </div>
 
   </div>
-   
+   {{>modalll}}
 
   <!--<div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
@@ -87,6 +87,31 @@
     </div>
     <div class="parallax"><img src="/imagenes/java.jpg" alt="Unsplashed background img 2"></div>
   </div>-->
+</template>
+<template name="modalll">
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4 style="text-align: center;">Editar tus datos</h4>
+        <form class="col s12">
+          <div style="color: black;">
+              <div class="">     
+                <label for="nombre">Titulo</label>
+                <input type="text" id="titulo" value="{{title}}">
+              </div>
+              <div class="">     
+                <label for="apellido">Descripcion</label>
+                <input type="text" id="descripcion" value="{{text}}">
+              </div>
+               <div class="card-action" style="text-align: center;">        
+                 <a id="modaleditar" class="waves-effect waves-light btn">Guardar</a>
+               </div>
+          </div>  
+        </form>
+    </div>
+    <div class="modal-footer">
+      <a class=" modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
+    </div>
+  </div>
 </template>
 <template name="insertarcursos">
   <div class="container">

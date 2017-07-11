@@ -2,12 +2,18 @@ import { Meteor } from 'meteor/meteor';
 
 Meteor.startup(() => {
 	 Meteor.methods({
+	 	"editcursos": function(id,msnObj){
+	 		console.log(msnObj);
+			Cursos.update({_id:id},{$set:{'nombre':msnObj.nombre,'detalle':msnObj.detalle}});
+			return true;
+	    },
 	 	"editperfil": function(id,msnObj){
-			Meteor.users.update({_id:id},{$set:{'profile.Nombre':msnObj.nombre,
-												'profile.Apellido':msnObj.apellido,
-												'profile.Idioma':msnObj.carrera,
-												'emails.0.address':msnObj.email
-												}});
+			Meteor.users.update({_id:id},
+				{$set:{ 'profile.Nombre':msnObj.nombre,
+						'profile.Apellido':msnObj.apellido,
+						'profile.Idioma':msnObj.carrera,
+						'emails.0.address':msnObj.email
+					}});
 			return true;
 	    },
 	 	"addMaterial": function(msnObj){
