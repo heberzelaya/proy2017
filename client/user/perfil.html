@@ -22,26 +22,29 @@
                   <form class="col s12">
                     <div style="color: black;">
                         <div class="">     
-                          <label for="apellido">Nombre</label>
-                          <input type="text" name="apellido" value="{{profile.Nombre}}">
+                          <label for="nombre">Nombre</label>
+                          <input type="text" id="nombre" value="{{profile.Nombre}}">
                         </div>
                         <div class="">     
                           <label for="apellido">Apellido</label>
-                          <input type="text" name="apellido" value="{{profile.Apellido}}">
+                          <input type="text" id="apellido" value="{{profile.Apellido}}">
                         </div>
                         <div class="">     
-                          <label for="apellido">Email</label>
-                          <input type="text" name="apellido" value="{{ema}}">
+                          <label for="email">Email</label>
+                          <input type="text" id="email" value="{{ema}}">
                         </div>
                         <div class="">     
-                          <label for="apellido">Carrera</label>
-                          <input type="text" name="apellido" value="{{profile.Idioma}}">
+                          <label for="carrera">Carrera</label>
+                          <input type="text" id="carrera" value="{{profile.Idioma}}">
                         </div>
-                    </div>        
+                         <div class="card-action" style="text-align: center;">        
+                           <a id="modaleditar" class="waves-effect waves-light btn">Guardar</a>
+                         </div>
+                    </div>  
                   </form>
               </div>
               <div class="modal-footer">
-                <a class=" modal-action modal-close waves-effect waves-green btn-flat">Submit</a>
+                <a class=" modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
               </div>
             </div>
 

@@ -2,6 +2,14 @@ import { Meteor } from 'meteor/meteor';
 
 Meteor.startup(() => {
 	 Meteor.methods({
+	 	"editperfil": function(id,msnObj){
+			Meteor.users.update({_id:id},{$set:{'profile.Nombre':msnObj.nombre,
+												'profile.Apellido':msnObj.apellido,
+												'profile.Idioma':msnObj.carrera,
+												'emails.0.address':msnObj.email
+												}});
+			return true;
+	    },
 	 	"addMaterial": function(msnObj){
 			Material.insert(msnObj);
 			return true;
