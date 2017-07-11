@@ -33,69 +33,69 @@
 </template>
 
 <template name="register">
-	<div id="register-page" class="row">
-		<div class="col s12 z-depth-6 card-panel">
+	<div id="register-page" class="row" style="padding-left: 150px;">
+		<div class="col s12 z-depth-6 card-panel" style="width: 60%; padding-left: -20px;padding-right: 50px;padding-top:20px;color: black; ">
 			<form class="register-form">        
 				<div class="row margin">
 					<div class="input-field col s12">
 						<i class="mdi-social-person-outline prefix"></i>
-						<input id="username" type="text" class="validate">
-						<label for="user_name" class="center-align">Username</label>
+						<input id="username" type="text" class="validate" style="color: black;">
+						<label for="user_name" class="">Username</label>
 					</div>
 				</div>
 				<div class="row margin">
 					<div class="input-field col s12">
 						<i class="mdi-communication-email prefix"></i>
-						<input id="email" type="email" class="validate">
-						<label for="user_email" class="center-align">Email</label>
-					</div>
-				</div>
-
-				<div class="row margin">
-					<div class="input-field col s12">
-						<i class="mdi-communication-email prefix"></i>
-						<input id="nombre" type="text" class="validate">
-						<label for="user_email" class="center-align">Nombre</label>
+						<input id="email" type="text" class="validate" style="color: black;">
+						<label for="user_email" class="">Email</label>
 					</div>
 				</div>
 
 				<div class="row margin">
 					<div class="input-field col s12">
 						<i class="mdi-communication-email prefix"></i>
-						<input id="apellido" type="text" class="validate">
-						<label for="user_email" class="center-align">Apellido</label>
+						<input id="nombre" type="text" class="validate" style="color: black;">
+						<label for="user_email" class="">Nombre</label>
 					</div>
 				</div>
 
 				<div class="row margin">
 					<div class="input-field col s12">
 						<i class="mdi-communication-email prefix"></i>
-						<input id="carrera" type="text" class="validate">
-						<label for="user_email" class="center-align">Carrera</label>
+						<input id="apellido" type="text" class="validate" style="color: black;">
+						<label for="user_email" class="">Apellido</label>
+					</div>
+				</div>
+
+				<div class="row margin">
+					<div class="input-field col s12">
+						<i class="mdi-communication-email prefix"></i>
+						<input id="carrera" type="text" class="validate" style="color: black;">
+						<label for="user_email" class="">Carrera</label>
 					</div>
 				</div>
 				<div class="row margin">
 					<div class="input-field col s12">
 						<i class="mdi-action-lock-outline prefix"></i>
-						<input id="password" type="password" class="validate">
+						<input id="password" type="password" class="validate" style="color: black;">
 						<label for="user_passw">Password</label>
 					</div>
 				</div>
 				<div class="row margin">
 					<div class="input-field col s12">
 						<i class="mdi-action-lock-outline prefix"></i>
-						<input id="repassword" type="repassword">
-						<label for="confirm_pass">Re-type password</label>
+						<input id="password" type="password" class="validate" style="color: black;">
+						<label for="user_passw">Re Password</label>
 					</div>
 				</div>
-				<div class="row">
-					<div class="input-field col s12">
-						<button id="REGISTER"	class="">Registrate</button>
-					</div>	
+				<div class="" style="text-align: center">
+					<button id="REGISTER" class="btn waves-effect waves-light" type="submit" name="action">Registrarse <i class="material-icons right">send</i>
+				 </button>
 				</div>
+				
 			</form>
 			<div class="input-field col s12">
-				<p class="margin center medium-small sign-up">Already have an account? <a href="/newlogin">Loguearse</a></p>
+				<p class="margin center medium-small sign-up">Si ya estas registrado puede : <a href="/newlogin">Loguearse</a></p>
 			</div>
 		</div>
 	</div>

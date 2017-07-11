@@ -14,42 +14,34 @@ Template.newlogin.events({
 		return false;
 	}		
 })
-Template.newlogin.events({
+Template.register.events({
 	"click #REGISTER" : function(e){
-		var username= document.getElementById("username");
-		var nombre= document.getElementById("nombre");
-		var apellido= document.getElementById("apellido");
-		var carrera= document.getElementById("carrera");
-		var email= document.getElementById("email");
-		var password= document.getElementById("password");
-		if( carrera!=undefined && password!=undefined && 
-			nombre!=undefined && apellido!=undefined && 
-			email!=undefined && username!=undefined )
-		{
-			email=email.value;
-			nombre=nombre.value;
-			password=password.value;
-			apellido=apellido.value;
-			carrera=carrera.value;
-			username=username.value;
-		}
+		var user,nom,ape,carre,ema,pas;
+		var username= document.getElementById("username");var email= document.getElementById("email");
+		var password= document.getElementById("password");var nombre= document.getElementById("nombre");
+		var apellido= document.getElementById("apellido");var carrera= document.getElementById("carrera");
+		if( carrera!=undefined && password!=undefined &&nombre!=undefined && apellido!=undefined && email!=undefined && username!=undefined )
+		{ema=email.value;nom=nombre.value;pas=password.value;ape=apellido.value;carre=carrera.value;user=username.value;
+		}else{ema=null;nom=null;pas=null;ape=null;carre=null;user=null;}
 		var user = {
-			"username" : username,
-			"email" : email,
-			"password" : password,
+			"username" : user,
+			"email" : ema,
+			"password" : pas,
 			"profile" : {
-				"Nombre" : nombre,
-				"Apellido" : apellido,
-				"Idioma" : carrera,
+				"Nombre" : nom,
+				"Apellido" : ape,
+				"Idioma" : carre,
 				"estado" :false
 			   }
 	    };
+	    //console.log(user);
 	    Accounts.createUser(user, function(e){
 				if(e == undefined) {								
 					Meteor.loginWithPassword(user.username,user.password);	
 				}
 		});
 		FlowRouter.go('/');
+
 		return false;
 	}		
 })
