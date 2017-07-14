@@ -40,6 +40,17 @@ Template.preguntas.events({
 	}
 });
 
+Template.tomarcurso.helpers({
+	readyPre: function(){
+		return FlowRouter.subsReady("preguntas");
+	},
+	pregu: function(){
+		return Pregunta.find().fetch().reverse();;
+	},
+	preguser: function(){
+		return Meteor.users.findOne({_id:this.idusuario});
+	}
+});
 
 
 
