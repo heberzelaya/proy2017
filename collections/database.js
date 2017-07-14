@@ -1,3 +1,24 @@
+Chateo = new Mongo.Collection("chats");
+var mensajesSchema =new SimpleSchema({
+    claseId : {
+        type:String,
+    },
+    userId : {
+        type:String,
+    },
+    mensaje : {
+        type : String
+    },
+    cursId : {
+        type : String
+    },
+    estado : {
+    	type : Boolean
+    }
+});
+
+Chateo.attachSchema(mensajesSchema);
+
 CHAT = new  Mongo.Collection("chat");
 CONNECT = new Mongo.Collection("connect");
 var chatSchema = new SimpleSchema({
@@ -71,3 +92,23 @@ var materiales=new SimpleSchema({
 	}
 });
 Material.attachSchema(materiales);  
+Pregunta = new  Mongo.Collection("pregunta");
+var preguntaSchema = new SimpleSchema({
+	mensaje: {
+		type:String
+	},
+	idcurso: {
+		type:String
+	},
+	idusuario: {
+		type:String
+	},
+	fecha:{
+		type: Date
+	},
+	votos:{
+		type:Number
+	}
+});
+
+Pregunta.attachSchema(preguntaSchema);

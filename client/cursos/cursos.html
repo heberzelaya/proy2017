@@ -1,9 +1,5 @@
 <template name="cursos">
-  {{#if currentUser }}
-   {{#if isInRole 'facilitador' 'facilitador'}}
-         {{>insertarcursos}}          
-    {{/if}}
-  {{/if}}
+  
   <div class="row">
     <div class="col s12">
         {{#each listCursos}}
@@ -19,7 +15,7 @@
               {{#if currentUser }}
                   {{#if isInRole 'estudiante' 'estudiante'}}
                       <div class="card-action" style="text-align: center;">
-                        <a href="/tomarcurso">Tomar este curso</a>
+                        <a href="/tomarcurso/{{_id}}">Tomar este curso</a>
                       </div>
                   {{else}}          
                       {{#if isInRole 'facilitador' 'facilitador'}}

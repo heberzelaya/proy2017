@@ -1,75 +1,99 @@
 <template name="tomarcurso">
 	<div class="row">
-        <div class="col m6 l6">
-        	 <div style="border-style: groove;">
-        		<img src="/imagenes/java.jpg" alt="" class="responsive-img"/>	
-		        <p style="float: left; padding-left: 30%;padding-right: 10%;">Archivo </p>		        
-		        <p >Chat</p>	
-        	</div>
-        </div>
-        <div class="col m6 l6">
-        	<div id="PREGUNTA" style="border-style: groove;">
-        		<form action="" method="POST">
-        				<div class="input-field"> 
-        					<div class="form-group">
-        						<span class="help-block"></span>
-        						<input type="text" class="form-control" id="" placeholder="Pregunta">
-        					</div>
-        				</div>
-        				<div style="text-align: center;">
-        					<button type="submit" class="btn">Añadir Pregunta</button>	
-        				</div>
-        			</form>	
-        	</div>
-        	<div>
-        		<div class="row">
-			        <div class="col s12" style="color: black;width: 103%">
-			          <div class="card">
-			            <div class="card-content">
-			           	 	Nombre: yamil Pereira mendoza <br />
-			           	 	Fecha: 14 de junio 2105 <br />
-			           	 <legend style="margin-top: 15px;"></legend>
-			              <p>I am a very simple card. I am good at containing small bits of information.
-			              I am convenient because I require little markup to use effectively.I am a very simple card. </p>
-			            </div>
-			            <div class="card-action">
-			              <a href="#">Comentario</a>
-			              <a href="#">Puntos</a>
-			            </div>
-			          </div>
-			        </div>
-			          <div class="col s12" style="color: black;width: 103%">
-			          <div class="card">
-			            <div class="card-content">
-			           	 	Nombre: yamil Pereira mendoza <br />
-			           	 	Fecha: 14 de junio 2105 <br />
-			           	 <legend style="margin-top: 15px;"></legend>
-			              <p>I am a very simple card. I am good at containing small bits of information.
-			              I am convenient because I require little markup to use effectively.I am a very simple card. </p>
-			            </div>
-			            <div class="card-action">
-			              <a href="#">Comentario</a>
-			              <a href="#">Puntos</a>
-			            </div>
-			          </div>
-			        </div>
-			          <div class="col s12" style="color: black;width: 103%">
-			          <div class="card">
-			            <div class="card-content">
-			           	 	Nombre: yamil Pereira mendoza <br />
-			           	 	Fecha: 14 de junio 2105 <br />
-			           	 <legend style="margin-top: 15px;"></legend>
-			              <p>I am a very simple card. I am good at containing small bits of information.
-			              I am convenient because I require little markup to use effectively.I am a very simple card. </p>
-			            </div>
-			            <div class="card-action">
-			              <a href="#">Comentario</a>
-			              <a href="#">Puntos</a>
-			            </div>
-			          </div>
-			        </div>
-			      </div>      
-        	</div>
-        </div>
-      </div>
+			  <div class="row">
+		        <div class="col m6 l6">
+		        	{{#if readyMA}}
+						{{#each clases}}
+						   <div class="card blue-grey darken-1">
+				            <div class="card-content white-text">
+				              <span class="card-title">{{titulo}}</span>
+				              <p>{{descripcion}}</p>
+				            </div>
+				            <div class="card-action" style="text-align: center;">
+				              <a href="#">Material</a>
+				              <a><strong>|</strong></a>
+				              <a class="CHATS" href="#">Chat</a>
+				            </div>
+				           	<div class="chat" id="{{_id}}" style="display: none;">
+				            	{{>chatss}}	
+							</div>
+				          </div>
+				        {{else}}
+				        	<h1>NO HAY MATERIAL</h1>
+
+						{{/each}}
+					{{else}}
+						<h1>NO HAY MATERIAL</h1>
+					{{/if}}	
+		        </div>
+		        <div class="col m6 l6">
+		        	<div class="row">
+		        		{{>preguntas}}
+					</div>
+		        	{{#if readyPre}}
+						{{#each pregu}}
+						   <div class="card blue-grey darken-1">
+				            <div class="card-content white-text">
+				           	  <p><strong>{{preguser.profile.Nombre}} {{preguser.profile.Apellido}}</strong></p>
+				              <p>{{mensaje}}</p>
+				              <p>{{fecha}}</p>
+				            </div>
+				            <div class="card-action">
+				              <a href="#">Responder</a>
+				             
+				            </div>
+				          </div>
+				        {{else}}
+				        	<div class="card-panel blue lighten-4 blue-text text-darken-4">No hay preguntas</div>
+
+						{{/each}}
+					{{/if}}
+		        </div>
+		      </div>
+	</div>
+</template>
+<template name="chatss">
+		
+		<ul class="comments1">
+		{{#if readychat}}
+	    	{{#each listchat}}		
+			  <li class="comment">
+			    <section class="author">
+			      <img class="photo" src="http://www.gravatar.com/avatar/453cb640b1f272fb50086052e0c9e013.png">
+			      <span class="name">{{users.profile.Nombre}}</span>
+			    </section>
+			    <section class="content">
+			      <p>{{mensaje}}</p>
+			    </section>
+			  </li>
+			{{else}}
+				<p>no hay comentarios</p>
+		  {{/each}}
+
+		{{/if}}
+		  <form>
+			  <div class="" style="padding: 10px;">
+	          <input id="last_name" type="text" class="validate" name="chattts" placeholder="Escriba un comentario">
+	          
+	        </div>
+	        <div style="text-align: center;">
+	        	<button class="btn waves-effect waves-light" type="submit" name="action">Enviar</button>	
+	        </div>
+        </form>
+		</ul>
+	
+
+</template>
+<template name="preguntas">
+	<form class="col s12">
+  		<div class="card-content white-text">
+  			<div class="input-field col s12">
+              <input placeholder="Pregunta" name="pregunta" id="pregunta" type="text" class="validate" style="color: black;">
+           </div>	
+  		</div>
+   		 <div style="text-align: center;">
+   			<button class="btn waves-effect waves-light" type="button" id="ANADIR" name="cargar">Añadir Respuesta
+	  		</button>
+   		</div>
+</form>
 </template>

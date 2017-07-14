@@ -1,7 +1,58 @@
 import { Meteor } from 'meteor/meteor';
 
 Meteor.startup(() => {
+
+	Meteor.publishComposite("chatas",function(id){
+    return {
+      find(){
+      	console.log(Chateo.find({cursId:id}).fetch());
+        return Chateo.find({cursId:id});
+      },
+      children:[{
+          find(preg){
+          	console.log(Meteor.users.find({_id:preg.userId}).fetch());
+            return Meteor.users.find({_id:preg.userId});
+          }          
+        }]
+    }});
+	Meteor.publishComposite("listaMaterial",function(id){
+		return {
+			find(){
+				return Material.find({cursoid:id});
+			},
+			children:[
+				{
+					find(mate){
+						return Cursos.find({_id:mate.id});
+					}
+				}
+			]
+		}
+	});
+	Meteor.publishComposite("pregunta",function(id){
+		return {
+			find(){
+					return Pregunta.find({idcurso:id});
+				},
+				children:[
+					{
+						find(mate){
+							return Meteor.users.find({_id:mate.idusuario});
+						}
+					}
+				]
+			}
+	});
 	 Meteor.methods({
+	 	"chatss": function(msnObj){
+		
+			Chateo.insert(msnObj);
+			return true;
+		},
+		"preguntass": function(msnObj){
+			Pregunta.insert(msnObj);
+			return true;
+		},
 	 	"editcursos": function(id,msnObj){
 	 		console.log(msnObj);
 			Cursos.update({_id:id},{$set:{'nombre':msnObj.nombre,'detalle':msnObj.detalle}});
