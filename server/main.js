@@ -43,7 +43,24 @@ Meteor.startup(() => {
 				]
 			}
 	});
+	Meteor.publishComposite("listaRespuesta",function(id){
+    return {
+      find(){
+      	
+        return Respuesta.find({cursId:id});
+      },
+      children:[{
+          find(preg){
+          	
+            return Meteor.users.find({_id:preg.userId});
+          }          
+        }]
+    }});
 	 Meteor.methods({
+	 	"respuesta":function(msnObj){
+			Respuesta.insert(msnObj);
+			return true;
+		},
 	 	"chatss": function(msnObj){
 		
 			Chateo.insert(msnObj);

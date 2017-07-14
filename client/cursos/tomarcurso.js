@@ -1,9 +1,10 @@
 chat = new ReactiveVar();
+resp = new ReactiveVar();
 Template.tomarcurso.helpers({
 	readyMA: function(){
 		return FlowRouter.subsReady("listaMateriales");
 	},
-	clases: function(){
+	materi: function(){
 		return Material.find();
 	},
 	clasescur: function(){
@@ -12,6 +13,12 @@ Template.tomarcurso.helpers({
 });
 
 Template.tomarcurso.events({
+	"click #RESPONDER":function(){
+		var idd = this._id;
+		resp.set(idd);
+		$('#'+this._id).slideToggle('slow', function() {});
+		return false;
+	},
 	"click .CHATS":function(e){
 		var idd = this._id;
 		chat.set(idd);
@@ -19,8 +26,40 @@ Template.tomarcurso.events({
 		return false;
 	},
 });
+Template.tomarcurso.helpers({	
+
+	readyRes:function(){
+		return FlowRouter.subsReady("listaRespuestas");
+	},
+    listaRespuesta: function () {
+		return	Respuesta.find({pregId:this._id}).fetch().reverse();
+	},
+	users :  function () {
+		//console.log(Meteor.users.findOne({_id:this._id}));
+		return	Meteor.users.findOne({_id:this.userId});
+	},
+})
 
 
+Template.respuestasas.events({
+	"submit form":function(e){
+		var pre=resp.get();
+		e.preventDefault();
+		var obj = {
+			texto  : e.target.email.value, 
+			userId : Accounts.user()._id,
+			pregId : pre,
+			cursId : FlowRouter.getParam('id')
+	
+		};
+		
+		Meteor.call('respuesta', obj);
+		 
+		 $('#formularioderespuesta').trigger("reset");
+		return false;
+	
+	}
+});
 
 Template.preguntas.events({
 	
@@ -35,7 +74,7 @@ Template.preguntas.events({
 			"fecha": new Date(),
 			"votos" : 0
 		};
-		//console.log(pre);
+		
 		Meteor.call("preguntass",pre);
 	}
 });
@@ -58,11 +97,11 @@ Template.chatss.helpers({
 		return FlowRouter.subsReady("chats");
 	},
     listchat: function () {
-    	//var va=Chateo.findOne({_id:this.cursId})._id;
+ 
 		return Chateo.find({claseId:this._id}).fetch();
 	},
 	users :  function () {
-		//console.log(Meteor.users.findOne({_id:this.userId}));
+
 		return	Meteor.users.findOne({_id:this.userId});
 	}
 });
@@ -74,8 +113,7 @@ Template.chatss.events({
 	'submit form': function (e) {
 		var pre=chat.get();
 
-		//var nomb;var element = document.getElementById('chattt');
-	    //if (element != null) {nomb = element.value;}else {nomb = null;}
+		
 	    var obj = {
 	    	claseId: pre,
 		  	userId : Accounts.user()._id,
@@ -86,14 +124,7 @@ Template.chatss.events({
 		};
 		console.log(obj);
 		Meteor.call('chatss',obj);
-		/*$(document).keypress(function(e) {
-		    if(e.which == 13) {
-		        Meteor.call('chatss',obj);
-		    }
-		    else{
-				Meteor.call('chatss',obj);
-		   }
-		});*/
+	
 		return false;
 	}
 });

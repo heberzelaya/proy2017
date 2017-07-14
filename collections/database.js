@@ -112,3 +112,29 @@ var preguntaSchema = new SimpleSchema({
 });
 
 Pregunta.attachSchema(preguntaSchema);
+
+///////////////////////////
+Respuesta = new Mongo.Collection('respuestass');
+
+var respuesta=new SimpleSchema({
+    
+    texto : {
+        type:String,
+    },
+    userId : {
+        type : String
+    },
+    pregId: {
+        type : String
+    },
+    cursId : {
+        type : String
+    },
+    fecha:{
+        type:Date,
+        autoValue: function(){
+            return new Date();
+        }
+    } 
+});
+Respuesta.attachSchema(respuesta);
