@@ -52,6 +52,21 @@ Template.tomarcurso.helpers({
 	}
 });
 
+Template.chatss.helpers({
+	
+	readychat:function(){
+		return FlowRouter.subsReady("chats");
+	},
+    listchat: function () {
+    	//var va=Chateo.findOne({_id:this.cursId})._id;
+		return Chateo.find({claseId:this._id}).fetch();
+	},
+	users :  function () {
+		//console.log(Meteor.users.findOne({_id:this.userId}));
+		return	Meteor.users.findOne({_id:this.userId});
+	}
+});
+
 
 
 Template.chatss.events({
