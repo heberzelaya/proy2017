@@ -2,6 +2,10 @@ BUTTONFACEBOOK =new ReactiveVar(false);
 Template.paginaprincipal.onRendered(function(){
 	
     $(".panelForm").css("opacity",0);
+     $(document).ready(function(){
+      $('.slider').slider();
+    });
+        
     
 });
 Template.paginaprincipal.helpers({

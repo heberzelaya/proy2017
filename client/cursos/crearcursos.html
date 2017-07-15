@@ -1,0 +1,29 @@
+<template name="crearcurso">
+	<div style="margin-right: 5%;" class="container">
+		<div class="row">
+	    	<h3 style="margin-left: 60px;">CREE EL CURSO</h3>
+			<form class="form-create" action="" method="post" name="form">
+
+		      <label for="fullname">Nombre</label>
+		      <input class="form-styling" type="text" name="nombre" placeholder=""/>
+
+		      <label for="email">Detalle</label>
+		      <input class="form-styling" type="text" name="detalle" placeholder=""/>
+
+		      <label for="password">Inicio</label>
+		      <input class="form-styling" type="date" name="inicio" placeholder=""/>
+
+	 		  <label for="password">Fin</label>
+		      <input class="form-styling" type="date" name="fin" placeholder=""/>
+
+		      <div class="input-field">
+	            <input type="file" id="imagen" name="imagen" class="form-control" required>
+	          </div> 
+		      <p class="center-align">
+	            <button class="waves-effect waves-light btn" type="submit">Crear</button>
+	          </p>
+			</form>
+			<br />
+		</div>
+	</div>
+</template>

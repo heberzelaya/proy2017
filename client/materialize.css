@@ -1,3 +1,26 @@
+.fotocurso{
+  width: 70%;
+  height: 200px;
+}
+
+.form-signin-left {
+  transform: translateX(-400px);
+  opacity: .0;
+}
+
+
+.form-create {
+  width: 430px;
+  height: 375px;
+  font-size: 16px;
+  font-weight: 300;
+  padding-left: 37px;
+  padding-right: 37px;
+  padding-top: 55px;
+  transition: opacity .5s ease, transform .5s ease;
+}
+
+
 .comments1 {
   
   font: .85em/1.5em Helvetica, sans-serif;

@@ -5,12 +5,12 @@ Meteor.startup(() => {
 	Meteor.publishComposite("chatas",function(id){
     return {
       find(){
-      	console.log(Chateo.find({cursId:id}).fetch());
+   
         return Chateo.find({cursId:id});
       },
       children:[{
           find(preg){
-          	console.log(Meteor.users.find({_id:preg.userId}).fetch());
+          	
             return Meteor.users.find({_id:preg.userId});
           }          
         }]
@@ -113,6 +113,9 @@ Meteor.startup(() => {
 		return true;
 	  }
 	});
+	 Meteor.publish('imagen', function () {
+	    return Images.find().cursor;
+	  });
 	 Meteor.publish('perfill', function() {
 		  
 		  return Meteor.users.find();

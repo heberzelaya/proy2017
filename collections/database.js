@@ -1,3 +1,13 @@
+
+Images = new FilesCollection({
+  storagePath: '/home/heber/Escritorio/PROY/data',
+  collectionName: 'Images',
+  allowClientCode: false,
+  cacheControl: 'public, max-age=31536000'
+});
+
+
+
 Chateo = new Mongo.Collection("chats");
 var mensajesSchema =new SimpleSchema({
     claseId : {
