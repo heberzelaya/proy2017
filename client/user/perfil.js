@@ -1,5 +1,8 @@
 Template.perfil.helpers({
-	
+	imagen() {
+	    return Images.findOne(this.profile.imagen);
+	 },
+
 	perfill : function(){
 		return Meteor.users.find({_id:Accounts.user()._id}).fetch();
 	},
@@ -9,7 +12,7 @@ Template.perfil.helpers({
 })
 Template.perfil.events({
 	//alert("result.value");
-	"click #modaleditar":function(e){
+	"submit form":function(e){
 		var nombre= document.getElementById("nombre");var email= document.getElementById("email");
 		var carrera= document.getElementById("carrera");var apellido= document.getElementById("apellido");
 		if(nombre!=undefined && email!=undefined && carrera!=undefined && apellido!=undefined )

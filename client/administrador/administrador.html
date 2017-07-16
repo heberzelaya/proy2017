@@ -2,6 +2,9 @@
     <li><a id="home" href="/">Home</a></li>
     <li><a href="#" >Ver Facilitadores</a></li>
     <li><a href="/baneo" class="layout__tab">Banear usuarios</a></li>   
-    <li><a href="#" id="logout">Administrador : {{username}}</a></li>
-     <li><a href="/perfil" id="Perfil">Perfil</a></li>
+	 <a  class='dropdown-button '  data-activates='dropdown1'>Administrador : {{username}}</a>
+	  <ul id='dropdown1' style="  margin-top: 64px;" class='dropdown-content'>
+	    <li><a href="/perfil" id="Perfil" style="color: black;">Perfil</a></li>
+	    <li><a id="logout" href="#!" style="color: black;">Cerra Sesion</a></li>
+	  </ul>
 </template>

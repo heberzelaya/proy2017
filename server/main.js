@@ -95,10 +95,16 @@ Meteor.startup(() => {
 	     }
 	     return false;
 	  },
-	  "banearUsuario": function(id){
+	  "addUsuario": function(id){
 		Meteor.users.update(id,{$set:{'profile.estado':true}});
 		return true;
 	  },
+
+	  "delUsuario": function(id){
+		Meteor.users.update(id,{$set:{'profile.estado':false}});
+		return true;
+	  },
+
 	  "addEstu": function(id){
 		Roles.addUsersToRoles(id,['estudiante'], 'estudiante');
 		return true;
@@ -121,7 +127,6 @@ Meteor.startup(() => {
 		  return Meteor.users.find();
 	});
 	Meteor.publish('listPendientes', function() {
-		  
 		  return Meteor.users.find();
 	});
 	Meteor.publish('listCursos', function() {  

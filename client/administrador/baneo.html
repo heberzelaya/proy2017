@@ -1,12 +1,16 @@
 <template name="baneo">
 	
-	<table class="table table-hover">
+	<div class="container">
+	  <h1>Usuarios Pendientes</h1>
+	  <p>Los usuarios que aun no fueron activados en el sistema</p> 
+	  <div  class="table-editable">
+	    <table class="table table-hover">
 	    	<thead>
 		    	<tr>
 			        <th>Nombre</th>
 			        <th>Apellido</th>	
 			        <th>Estado</th> 
-			        <th>Que Desea Ejercer</th>  
+			        
 			        <th></th>    
 			        <th>Roles</th>
 			  
@@ -15,25 +19,36 @@
 	      {{#each listPendientes}}
 	       <tbody>
 	      <tr>
-		        <td scope="row">{{profile.Nombre}}</td>
+	      		<td scope="row">{{profile.Nombre}}</td>
 		        <td>{{profile.Apellido}}</td>
 		     
 		 		<td>Inactiva</td>
-		 		   <td>hola</td>
+		 		
 		        <td scope="row">
-		        	<button id="habilitar" type="button" class="btn btn-primary active"><span class="glyphicon glyphicon-user"> Habilitar</span></button>
+		        	<button id="Habilitar" type="button" class="btn btn-primary active"><span class="glyphicon glyphicon-user"> Habilitar</span></button>
 		        </td>
+
 		          <td scope="row"> 
-		        	<button id="estudiante" type="button" class="btn btn-primary active"><span class="glyphicon glyphicon-user"> Estudiante</span></button>
-		        	<button id="facilitador" type="button" class="btn btn-primary active"><span class="glyphicon glyphicon-user"> Facilitador</span></button>
+		          {{#if permisos}}
+		          		  	
+		          		  	<button id="rolfacili" type="button" class="btn btn-primary active"><span class="glyphicon glyphicon-user"> Eliminar Rol</span></button>
+		          {{else}}
+		          		{{#if ver_state}}
+		          			<button id="rolfacili" type="button" class="btn btn-primary active"><span class="glyphicon glyphicon-user"> Facilitador</span></button>
+		          		{{else}}	
+				          	<button id="rolestu" type="button" class="btn btn-primary active"><span class="glyphicon glyphicon-user"> Estudiante</span></button>
+		          		{{/if}}
+		          {{/if}}
 		        </td>
 		      </tr>	
 	         </tbody>
 	      {{/each}}       
 	    </table>
-	    <div class="container">
+	  </div>
+	</div>
+	<div class="container">
 	  <h1>Usuarios</h1>
-	  <p>usuarios logeados por preferencia en el  sistema</p> 
+	  <p>Los usuarios que estan activados en el sistema</p> 
 	  <div  class="table-editable">
 	    <table class="table table-hover	">
     	  <thead>
@@ -47,12 +62,13 @@
 	      {{#each listActivos}}
 	       <tbody>
 		      <tr>
-		        <td>{{profile.nombre}}</td>
-		        <td>{{profile.apellido}}</td>	
+		        <td>{{profile.Nombre}}</td>
+		        <td>{{profile.Apellido}}</td>	
 		       	<td>Activo</td>	
 		        <td>
 		           <button id="Deshabilitar" type="button" class="btn btn-primary active"><span class="glyphicon glyphicon-align-right"> Dar baja</span></button>   
 		        </td>
+		      
 		      </tr>	
 	        </tbody>
 	      {{/each}}       

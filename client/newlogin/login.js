@@ -13,9 +13,13 @@ Template.newlogin.events({
 		FlowRouter.go('/');
 		return false;
 	}		
-})
+});
+
+Template.register.onRendered(function(){
+	$("select").material_select();
+});
 Template.register.events({
-	"click #REGISTER" : function(e){
+	"submit form" : function(e){
 		var user,nom,ape,carre,ema,pas;
 		var username= document.getElementById("username");var email= document.getElementById("email");
 		var password= document.getElementById("password");var nombre= document.getElementById("nombre");
@@ -30,8 +34,9 @@ Template.register.events({
 			"profile" : {
 				"Nombre" : nom,
 				"Apellido" : ape,
-				"Idioma" : carre,
-				"estado" :false
+				"Idioma":e.target.ejercer.value,
+				"estado" :false,
+				"imagen":"null"
 			   }
 	    };
 	    //console.log(user);
