@@ -1,6 +1,15 @@
 chat = new ReactiveVar();
 resp = new ReactiveVar();
 Template.tomarcurso.helpers({
+	imagess() {
+		//Respuesta.findOne({userId:idUsuario}).texto
+	
+		var res=Cursos.findOne({_id:this.cursoid}).imagen;
+		if (res==undefined) {
+			console.log("esta vacio");
+		}
+   		 return Images.findOne(res);
+	},
 	videos(){
 		return Videos.findOne(this.file);
 	},
@@ -53,7 +62,7 @@ Template.tomarcurso.events({
 		return false;
 
 	},
-	
+
 });
 Template.tomarcurso.helpers({	
 
@@ -121,7 +130,12 @@ Template.tomarcurso.helpers({
 });
 
 Template.chatss.helpers({
-	
+	ver:function(){
+		if (Meteor.userId()==this.userId) {
+			return true;
+		}
+		return false;
+	},
 	readychat:function(){
 		return FlowRouter.subsReady("chats");
 	},
@@ -151,9 +165,9 @@ Template.chatss.events({
 			cursId : FlowRouter.getParam('id'),
 			estado : false
 		};
-		console.log(obj);
+		//console.log(obj);
 		Meteor.call('chatss',obj);
-	
+		e.target.chattts.value="";
 		return false;
 	}
 });

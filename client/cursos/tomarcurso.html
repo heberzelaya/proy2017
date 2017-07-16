@@ -8,7 +8,11 @@
 						{{#each materi}}
 						   <div class="card blue-grey darken-1">
 				            <div class="card-content white-text">
-				              <span class="card-title">{{titulo}}</span>
+				            	<div style="text-align: center;">
+				            		<img id="FOTOMATERIAL" src="{{imagess.link}}">		
+				            	</div>
+				              <br />
+				              <span id="TITULOMATERIAL" class="card-title">{{titulo}}</span>
 				              <p>{{descripcion}}</p>
 				            </div>
 				            <div class="card-action" style="text-align: center;">
@@ -20,7 +24,7 @@
 				            <legend style="margin-top: 5px;"></legend>
 					      	 <div class="MATERIAL" id="{{_id}}material" style="display: none;">
 								
-								<video width="440" controls style="padding: 10px">
+								<video class="responsive-video" controls style="padding: 10px">
 								   <source src="{{videos.link}}">
 								</video>
 						   </div>
@@ -113,16 +117,27 @@
 		
 		<ul class="comments1">
 		{{#if readychat}}
-	    	{{#each listchat}}		
-			  <li class="comment">
-			    <section class="author">
-			      <img class="photo" src="/imagenes/yas.jpg">
-			      <span class="name">{{users.profile.Nombre}}</span>
-			    </section>
-			    <section class="content">
-			      <p>{{mensaje}}</p>
-			    </section>
-			  </li>
+	    	{{#each listchat}}	
+	    		{{#if ver}}	
+	    			<li class="commentss">
+					    <section class="contentss">
+					      <p>{{mensaje}}</p>
+					    </section>
+					     <img class="photoss" src="/imagenes/yas.jpg">
+					  </li> 
+					  <span class="namess">{{users.profile.Nombre}}</span>
+				  {{else}}
+				  	 <li class="comment">
+					    <section class="author">
+					      <img class="photo" src="/imagenes/yas.jpg">
+					      <span class="name">{{users.profile.Nombre}}</span>
+					    </section>
+					    <section class="content">
+					      <p>{{mensaje}}</p>
+					    </section>
+					  </li>
+				  
+			  	{{/if}}
 			{{else}}
 				<p>no hay comentarios</p>
 		  {{/each}}

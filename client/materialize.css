@@ -1,3 +1,55 @@
+
+.commentss {
+    list-style: none;
+    padding: 0 0 2em 6em; 
+    position: relative;
+}
+.authorss {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4em;
+  text-align: right;
+  white-space: nowrap;
+ }   
+.namess {
+  margin-right: 10px;
+      margin-top: -52px;
+  float: right;      
+  width: 2em;
+  border-radius: .25em;
+    color: rgba(255,255,255,.35);
+    display: block;
+    font-size: .75em;
+  }
+
+.photoss {
+  margin-top: -50px;
+  float: right;      
+  width: 2em;
+  border-radius: .25em;
+}
+    
+      
+.contentss {
+       width: 100%;
+      margin-left: -60px;
+      padding: .25em 1em;
+      border-radius: .5em;
+      background: white;
+      
+  }
+
+
+/**/
+#TITULOMATERIAL{
+    margin-left: 4px;
+}
+#FOTOMATERIAL{
+  width: 70%;
+  height: 100px;
+
+}
 .fotocurso{
   width: 70%;
   height: 260px;
