@@ -1,3 +1,5 @@
+
+
 <template name="tomarcurso">
 	<div class="row">
 			  <div class="row">
@@ -10,10 +12,21 @@
 				              <p>{{descripcion}}</p>
 				            </div>
 				            <div class="card-action" style="text-align: center;">
-				              <a href="#">Material</a>
+				              <a class="Archivos" href="#">Material</a>
 				              <a><strong>|</strong></a>
 				              <a class="CHATS" href="#">Chat</a>
 				            </div>
+				            <!-- videos -->
+				            <legend style="margin-top: 5px;"></legend>
+					      	 <div class="MATERIAL" id="{{_id}}material" style="display: none;">
+								
+								<video width="500" controls>
+								   <source src="{{videos.link}}">
+								</video>
+						   </div>
+					        <legend style="margin-top: 5px;"></legend>
+						   <!-- videos -->
+
 				           	<div class="chat" id="{{_id}}" style="display: none;">
 				            	{{>chatss}}	
 							</div>

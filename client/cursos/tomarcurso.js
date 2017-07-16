@@ -1,6 +1,9 @@
 chat = new ReactiveVar();
 resp = new ReactiveVar();
 Template.tomarcurso.helpers({
+	videos(){
+		return Videos.findOne(this.file);
+	},
 	readyMA: function(){
 		return FlowRouter.subsReady("listaMateriales");
 	},
@@ -19,12 +22,38 @@ Template.tomarcurso.events({
 		$('#'+this._id).slideToggle('slow', function() {});
 		return false;
 	},
+	"click .Archivos":function(e){
+		if($('.MATERIAL').css('display')=='block')
+		{
+			$('#'+this._id+'material').slideToggle('slow', function() {});
+			$(".chat").css({"display": "none"});
+		}
+		else{
+			$('#'+this._id+'material').slideToggle('slow', function() {});
+			$(".chat").css({"display": "none"});
+		}
+		return false;
+
+	},
+
 	"click .CHATS":function(e){
+
 		var idd = this._id;
 		chat.set(idd);
-		$('#'+this._id).slideToggle('slow', function() {});
+		if($('.chat').css('display')=='none')
+		{
+			$('#'+this._id).slideToggle('slow', function() {});
+			$(".MATERIAL").css({"display": "none"});
+			console.log("entra");
+		}
+		else{
+			$('#'+this._id).slideToggle('slow', function() {});
+			$(".MATERIAL").css({"display": "none"});
+		}
 		return false;
+
 	},
+	
 });
 Template.tomarcurso.helpers({	
 
@@ -128,3 +157,5 @@ Template.chatss.events({
 		return false;
 	}
 });
+
+ Meteor.subscribe('videos');
