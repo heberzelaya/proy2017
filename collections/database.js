@@ -1,3 +1,9 @@
+Videos = new FilesCollection({
+    storagePath: '/home/heber/Escritorio/PROY/data',
+    collectionName: 'Videos',
+    allowClientCode: false
+});
+
 
 Images = new FilesCollection({
   storagePath: '/home/heber/Escritorio/PROY/data',

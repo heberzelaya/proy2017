@@ -2,10 +2,15 @@ Template.subirmaterial.events({
 	"submit form" : function(e){
 		e.preventDefault();
 		var idcu=FlowRouter.getParam('id');
+		var upload = Videos.insert({
+			file: event.target.imagen.files[0],
+			streams: 'dynamic',
+			chunkSize: 'dynamic',
+		});
 		var obj = {
 			"titulo" : e.target.titulo.value,
 			"descripcion" : e.target.descripcion.value,
-			"file":"null",
+			"file":upload.config.fileId,
 			"cursoid":idcu
 	       };
 	    Meteor.call("addMaterial",obj);
