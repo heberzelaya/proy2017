@@ -57,6 +57,22 @@ Meteor.startup(() => {
         }]
     }});
 	 Meteor.methods({
+	 	"delrol":function(id){
+			var ver=Meteor.users.findOne({_id:id}).profile.Idioma;
+			if(ver === "Facilitador")
+			{
+				Roles.removeUsersFromRoles(id, ['facilitador'], 'facilitador');
+			}
+			else
+			{
+				Roles.removeUsersFromRoles(id, ['estudiante'], 'estudiante')
+
+			}
+			console.log(ver);
+
+			// Roles.removeUsersFromRoles('cE4ZsaoYv95QFv3gK', ['estudiante'], 'estudiante');
+			return true;
+		},
 	 	"respuesta":function(msnObj){
 			Respuesta.insert(msnObj);
 			return true;

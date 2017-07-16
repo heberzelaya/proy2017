@@ -28,9 +28,16 @@ Template.baneo.helpers({
 	}
 });
 Template.baneo.events({
+	"click #deleterol":function(e){
+		alert(this._id);
+		id=this._id;
+		Meteor.call("delrol",id);
+
+	},
 	"click #Habilitar":function(e){
 		//e.preventDefault();
 		//alert(this._id);
+
 		id=this._id;
 		Meteor.call("addUsuario",id);
 	},
@@ -43,12 +50,14 @@ Template.baneo.events({
 		
 		id=this._id;
 		Meteor.call("addEstu",id);
+		Meteor.call("addUsuario",id);
 	},
 	"click #rolfacili":function(e){
 		//e.preventDefault();
 		alert(this._id);
 		id=this._id;
 		Meteor.call("addFaci",id);
+		Meteor.call("addUsuario",id);
 	}
 });
 
