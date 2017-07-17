@@ -32,11 +32,11 @@ Template.register.events({
 			"email" : ema,
 			"password" : pas,
 			"profile" : {
-				"Nombre" : nom,
-				"Apellido" : ape,
-				"Idioma":e.target.ejercer.value,
-				"estado" :false,
-				"imagen":"null"
+				"Nombre" 	: nom,
+				"Apellido" 	: ape,
+				"Idioma"	:e.target.ejercer.value,
+				"estado" 	:false,
+				"imagen"	:"null"
 			   }
 	    };
 	    //console.log(user);

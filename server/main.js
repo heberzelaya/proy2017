@@ -73,6 +73,7 @@ Meteor.startup(() => {
 			// Roles.removeUsersFromRoles('cE4ZsaoYv95QFv3gK', ['estudiante'], 'estudiante');
 			return true;
 		},
+		
 	 	"respuesta":function(msnObj){
 			Respuesta.insert(msnObj);
 			return true;
@@ -95,7 +96,7 @@ Meteor.startup(() => {
 			Meteor.users.update({_id:id},
 				{$set:{ 'profile.Nombre':msnObj.nombre,
 						'profile.Apellido':msnObj.apellido,
-						'profile.Idioma':msnObj.carrera,
+						'profile.imagen':msnObj.imagen,
 						'emails.0.address':msnObj.email
 					}});
 			return true;
@@ -138,7 +139,7 @@ Meteor.startup(() => {
 	 Meteor.publish('videos', function () {
 	    return Videos.find().cursor;
 	  });
-		 
+
 	 Meteor.publish('imagen', function () {
 	    return Images.find().cursor;
 	  });

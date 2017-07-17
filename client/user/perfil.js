@@ -1,8 +1,7 @@
 Template.perfil.helpers({
 	imagen() {
 	    return Images.findOne(this.profile.imagen);
-	 },
-
+	  },
 	perfill : function(){
 		return Meteor.users.find({_id:Accounts.user()._id}).fetch();
 	},
@@ -13,20 +12,37 @@ Template.perfil.helpers({
 Template.perfil.events({
 	//alert("result.value");
 	"submit form":function(e){
-		var nombre= document.getElementById("nombre");var email= document.getElementById("email");
-		var carrera= document.getElementById("carrera");var apellido= document.getElementById("apellido");
-		if(nombre!=undefined && email!=undefined && carrera!=undefined && apellido!=undefined )
-		{nombre=nombre.value;email=email.value;carrera=carrera.value;apellido=apellido.value;}
+		var nombre= document.getElementById("nombre");
+		var email= document.getElementById("email");
+		var apellido= document.getElementById("apellido");
+		if(nombre!=undefined && email!=undefined && apellido!=undefined )
+		{nombre=nombre.value;email=email.value;apellido=apellido.value;}
 		var id=Accounts.user()._id;
+		
+		valor = document.getElementById("imagen").value;
+	     var imagenes;
+	     if( valor != "" ) {
+	        var upload = Images.insert({
+	          file: e.target.imagen.files[0],
+	          streams: 'dynamic',
+	          chunkSize: 'dynamic',
+	        });
+	        imagenes=upload.config.fileId;
+	     }else{
+	         var sacar=Meteor.users.findOne({_id:Accounts.user()._id}).profile.imagen;
+	        imagenes=sacar;
+	     }
+		
+		//console.log(e.target.imagen.value);
+
 		var obj = {
 			"nombre" : nombre,
 			"apellido" : apellido,
 			"email" : email,
-			"carrera" : carrera
+			"imagen":imagenes
 	    };
 		Meteor.call("editperfil",id,obj);
 		$('#modal1').closeModal();
-       
 		return false;
 	},
 	"click #editar":function(){

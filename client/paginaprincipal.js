@@ -12,12 +12,6 @@ Template.paginaprincipal.onRendered(function(){
 
 
 Template.paginaprincipal.helpers({
-	ver(){
-		var verr=Meteor.users.findOne({_id:Accounts.user()._id}).profile.estado;
-		if(verr===false){
-			return false;
-		}
-	},
 	facebook: function(){
 		 return BUTTONFACEBOOK.get();
 	},
@@ -32,5 +26,6 @@ Template.paginaprincipal.events({
 	},
 	"click #logout" : function(){
 		Meteor.logout();
+		FlowRouter.go("/");
 	}
 })

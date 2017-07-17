@@ -1,4 +1,6 @@
-
+#DOWNLOAD{
+  margin-left: 10px;
+}
 .commentss {
     list-style: none;
     padding: 0 0 2em 6em; 
@@ -13,24 +15,24 @@
   white-space: nowrap;
  }   
 .namess {
-  margin-right: 10px;
-      margin-top: -52px;
+  margin-right: 20px;
+      margin-top: -42px;
   float: right;      
   width: 2em;
   border-radius: .25em;
-    color: rgba(255,255,255,.35);
+    color: black;
     display: block;
-    font-size: .75em;
+    font-size: 12px;
   }
-
 .photoss {
   margin-top: -50px;
   float: right;      
   width: 2em;
   border-radius: .25em;
+  font-size: 15px;
+  height: 30px;
 }
-    
-      
+         
 .contentss {
        width: 100%;
       margin-left: -60px;
@@ -44,10 +46,12 @@
 /**/
 #TITULOMATERIAL{
     margin-left: 4px;
+    font-size: 40px;
 }
 #FOTOMATERIAL{
-  width: 70%;
-  height: 100px;
+  width: 30%;
+  height: 70px;
+  float: left;
 
 }
 .fotocurso{
@@ -59,8 +63,6 @@
   transform: translateX(-400px);
   opacity: .0;
 }
-
-
 .form-create {
   width: 430px;
   height: 375px;
@@ -71,41 +73,37 @@
   padding-top: 55px;
   transition: opacity .5s ease, transform .5s ease;
 }
-
-
 .comments1 {
   
   font: .85em/1.5em Helvetica, sans-serif;
   padding: 1em; 
-  margin: 0; 
-  
-  
+  margin: 0;  
 }
-
 .comment {
     list-style: none;
     padding: 0 0 2em 6em; 
     position: relative;
 }
-    .author {
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 4em;
-      text-align: right;
-      white-space: nowrap;
-     }   
-      .name {
-        color: rgba(255,255,255,.35);
-        display: block;
-        font-size: .75em;
-      }
-
+.author {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4em;
+  text-align: right;
+  white-space: nowrap;
+ }   
+.name {
+  color: black;
+  display: block;
+  margin-left: 20px;
+  font-size: 12px;
+}
 .photo {
-        
-        width: 2em;
-        border-radius: .25em;
-      }
+  font-size: 15px;
+  height: 30px;      
+  width: 2em;
+  border-radius: .25em;
+}
     
       
 .content {

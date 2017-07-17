@@ -2,8 +2,6 @@ chat = new ReactiveVar();
 resp = new ReactiveVar();
 Template.tomarcurso.helpers({
 	imagess() {
-		//Respuesta.findOne({userId:idUsuario}).texto
-	
 		var res=Cursos.findOne({_id:this.cursoid}).imagen;
 		if (res==undefined) {
 			console.log("esta vacio");
@@ -130,6 +128,11 @@ Template.tomarcurso.helpers({
 });
 
 Template.chatss.helpers({
+	im() {
+		//Respuesta.findOne({userId:idUsuario}).texto
+		var im=Meteor.users.findOne({_id:this.userId}).profile.imagen;
+		return Images.findOne(im);
+	},
 	ver:function(){
 		if (Meteor.userId()==this.userId) {
 			return true;
