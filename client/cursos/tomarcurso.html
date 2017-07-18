@@ -54,13 +54,16 @@
 						{{#each pregu}}
 						   <div class="card blue-grey darken-1">
 				            <div class="card-content white-text">
-				           	  <p><strong>{{preguser.profile.Nombre}} {{preguser.profile.Apellido}}</strong></p>
+				            	<img id="FOTOPREGUN" src="{{im.link}}">
+				           	  <p ><strong style="margin-left: 13px">{{preguser.profile.Nombre}} {{preguser.profile.Apellido}}</strong></p>
+				           	   <p style="margin-left: 18%">{{fe}}</p>
+				           	   <br />
 				              <p>{{mensaje}}</p>
-				              <p>{{fecha}}</p>
+				             
 				              
 				            </div>
 				           <div style="padding-left: 20px;">
-				              <a > 0 Comentario</a>
+				              <a > {{comentario}} Comentario</a>
 				              
 				              <a > 0 Votos</a>
 				            </div>

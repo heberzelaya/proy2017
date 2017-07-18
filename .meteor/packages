@@ -19,6 +19,7 @@ shell-server@0.2.3            # Server-side component of the `meteor shell` comm
 
 
 fourseven:scss
+momentjs:moment
 materialize:materialize
 kadira:flow-router
 kadira:blaze-layout

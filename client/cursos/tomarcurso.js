@@ -116,11 +116,24 @@ Template.preguntas.events({
 });
 
 Template.tomarcurso.helpers({
+	comentario :function(){
+		return Respuesta.find({pregId:this._id}).fetch().length;
+	},
+	im() {
+		//Respuesta.findOne({userId:idUsuario}).texto
+		var im=Meteor.users.findOne({_id:this.idusuario}).profile.imagen;
+		return Images.findOne(im);
+	},
+	fe(){
+		var  pre=Pregunta.findOne({_id:this._id}).fecha;
+		var  re= moment(pre).format("LLL");
+		return re;
+	},
 	readyPre: function(){
 		return FlowRouter.subsReady("preguntas");
 	},
 	pregu: function(){
-		return Pregunta.find().fetch().reverse();;
+		return Pregunta.find().fetch().reverse();
 	},
 	preguser: function(){
 		return Meteor.users.findOne({_id:this.idusuario});
