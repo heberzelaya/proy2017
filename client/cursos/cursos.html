@@ -11,8 +11,11 @@
               </div>
               <div class="card-content" style="color: red;">
               <span class="card-title" style="color: black;">{{nombre}}</span>
+                <div class="rectangle_hidden">
                 <p  style="color: black;">{{detalle}}</p>
+                </div>
               </div>
+
               {{#if currentUser }}
                   {{#if isInRole 'estudiante' 'estudiante'}}
                       <div class="card-action" style="text-align: center;">
@@ -27,7 +30,7 @@
                           <a id="editCurso" class="waves-effect waves-light  modal-trigger" data-target="modal1" >Editar</a>
                         </div>
                         {{else}}
-                          <div class="card-panel blue lighten-4 blue-text text-darken-4">No tienes acceso</div>
+                          <div class="card-panel blue lighten-4 blue-text text-darken-4" style="text-align: center;">No tienes acceso</div>
                         {{/if}}
                       {{else}}
                           {{#if  isInRole 'admin' 'admin'}} 

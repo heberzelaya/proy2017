@@ -4,7 +4,12 @@ Template.cursos.onRendered(function(){
 	$('.button-collapse').sideNav();
     $('.parallax').parallax();
     $(".panelForm").css("opacity",0);
+
+    $("#container_curso").risizeDiv(function(num){
+		$(".rectangle_hidden").animate({scrollTop:num},400);
+	});
 });
+
 
 Template.cursos.events({
 	"click #editCurso":function(e){

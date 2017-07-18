@@ -3,6 +3,12 @@
      border-radius: 10px 10px 10px 10px;
       border: 1px solid #BDC2C9;
 }*/
+.rectangle_hidden{
+  height: 140px;
+  overflow: scroll;
+  overflow-x:hidden; 
+}
+
 #Perfil{
   margin-left: 40px; 
 }
@@ -59,6 +65,7 @@
   margin-left: 10px;
 }
 .commentss {
+    margin-right: 11px;
     list-style: none;
     padding: 0 0 2em 6em; 
     position: relative;
