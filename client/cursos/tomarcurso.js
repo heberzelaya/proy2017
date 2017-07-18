@@ -63,7 +63,16 @@ Template.tomarcurso.events({
 
 });
 Template.tomarcurso.helpers({	
-
+	ima() {
+		//Respuesta.findOne({userId:idUsuario}).texto
+		var im=Meteor.users.findOne({_id:this.userId}).profile.imagen;
+		return Images.findOne(im);
+	},
+	fec(){
+		var  pre=Respuesta.findOne({_id:this._id}).fecha;
+		var  re= moment(pre).format("LLL");
+		return re;
+	},
 	readyRes:function(){
 		return FlowRouter.subsReady("listaRespuestas");
 	},
@@ -120,7 +129,7 @@ Template.tomarcurso.helpers({
 		return Respuesta.find({pregId:this._id}).fetch().length;
 	},
 	im() {
-		//Respuesta.findOne({userId:idUsuario}).texto
+		
 		var im=Meteor.users.findOne({_id:this.idusuario}).profile.imagen;
 		return Images.findOne(im);
 	},
