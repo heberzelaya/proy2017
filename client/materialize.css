@@ -3,7 +3,19 @@
      border-radius: 10px 10px 10px 10px;
       border: 1px solid #BDC2C9;
 }*/
-
+#Perfil{
+  margin-left: 40px; 
+}
+#PERFILFOTOS{
+  height: 500px;
+}
+#PERFILFOTO{
+  float: left;
+  width: 30%;
+  margin-left: 1px;
+  margin-top: 1px;
+  border-radius: 50px 50px 50px 50px; 
+}
 #respu {
   
   width: 100%;

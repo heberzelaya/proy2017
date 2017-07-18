@@ -12,7 +12,12 @@ Template.estu.onRendered(function(){
   );
 });
 Template.estu.helpers({
-	
+	foto : function(){
+   // var res=Meteor.users.findOne({_id:Accounts.user()._id}).profile.imagen;
+    //alert(res);
+    
+    return Images.findOne({_id:Meteor.users.findOne({_id:Accounts.user()._id}).profile.imagen});
+  },
 	username : function(){
 		return Accounts.user().username;
 	}
