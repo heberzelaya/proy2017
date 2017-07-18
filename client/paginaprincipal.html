@@ -29,25 +29,29 @@
            
         {{/if}}
       </ul>
-     
-     
 
       <ul id="nav-mobile" class="side-nav">
         
         <li><a href="#" id="login">Login</a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+
     </div>
   </nav>
   <br>
   <div class="row">
+
+  
          {{>paginaprincipalLogin}}
+
   </div>
+  {{>Template.dynamic template=principalimguno}}
    <div class="container">
    {{>Template.dynamic template=content}}
+
      
   </div>
-   
+  
 </template>
 <!-- 
 
