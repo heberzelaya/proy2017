@@ -12,7 +12,9 @@ Template.admi.onRendered(function(){
   );
 });
 Template.admi.helpers({
-	
+	foto : function(){
+    return Images.findOne({_id:Meteor.users.findOne({_id:Accounts.user()._id}).profile.imagen});
+  },
 	username : function(){
 		return Accounts.user().username;
 	}

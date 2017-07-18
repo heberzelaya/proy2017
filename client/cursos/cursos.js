@@ -25,7 +25,17 @@ Template.cursos.helpers({
    		 return Images.findOne(this.imagen);
 	},
 	listCursos: function(){
-		return Cursos.find();
+		return Cursos.find({},{
+			transform : function(item) {
+				if(Accounts.user() != null && item.userId == Accounts.user()._id){
+					item.propio = true;
+				}else {
+					item.propio = false;
+				}
+				return item;
+			}
+
+		});
 	}
 });
 Meteor.subscribe('listCursos');

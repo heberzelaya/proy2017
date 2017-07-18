@@ -10,11 +10,11 @@
   height: 500px;
 }
 #PERFILFOTO{
+  height: 50px;
   float: left;
   width: 30%;
   margin-left: 1px;
   margin-top: 1px;
-  border-radius: 50px 50px 50px 50px; 
 }
 #respu {
   

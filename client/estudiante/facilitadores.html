@@ -1,0 +1,24 @@
+<template name="facilitadoress">
+	<div class="row">
+    <div class="col s12">
+        {{#each facilitadores}}
+          <div class="col s6 m6 l13">
+            <div class="card">
+              <div class="card-image">
+                <img class="fotocurso" src="{{imagen.link}}">
+              </div>
+              <div class="card-content" style="color: red;">
+              <span class="card-title" style="color: black;">{{profile.Nombre}}</span>
+                <p  style="color: black;">{{profile.Idioma}}</p>
+              </div>
+         <!--    <div class="card-action" style="text-align: center;">
+                <a href="#">Eliminar</a>
+                <a>!</a>
+                <a href="#">Editar</a>
+              </div> -->   
+           </div>     
+   		 </div>
+   		 {{/each}}
+    </div>
+  </div>
+</template>	
